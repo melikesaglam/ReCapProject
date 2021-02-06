@@ -20,5 +20,28 @@ namespace Business.Concrete
         {
             return _carDal.GetAll();
         }
+
+        public List<Car> GetCarsByBrandId(int brandId)
+        {
+            return _carDal.GetAll(c => c.BrandId == brandId);
+        }
+
+        public List<Car> GetCarsByColorId(int colorId)
+        {
+            return _carDal.GetAll(c => c.ColorId == colorId);
+        }
+
+        public void AddCar(Car car)
+        {
+            if (car.DailyPrice > 0 )
+            {
+                Console.WriteLine("Fiyat sisteme başarıyla eklendi");
+            }
+            else
+            {
+                Console.WriteLine("Günlük fiyat 0'dan büyük olmalıdır!");
+            }
+        }
     }
 }
+
