@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    class BrandManager : IBrandService
+    public class BrandManager : IBrandService
     {
         IBrandDal _brandDal;
 
@@ -15,6 +15,12 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
+
+        public void Add(Brand brand)
+        {
+            _brandDal.Add(brand);
+        }
+
         public void AddBrand(Brand brand)
         {
             if (brand.BrandName.Length > 2)
